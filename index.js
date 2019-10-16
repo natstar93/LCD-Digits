@@ -9,7 +9,7 @@ const dotDashes = [
   ['._.', '|.|', '|_|'],
   ['...', '..|', '..|'],
   ['._.', '._|', '|_.'],
-  ['._.', '._|', '._|'], // 3
+  ['._.', '._|', '._|'],
   ['...', '|_|', '..|'],
   ['._.', '|_.', '._|'],
   ['._.', '|_.', '|_|'],
@@ -18,32 +18,18 @@ const dotDashes = [
   ['._.', '|_|', '..|'],  
 ];
 
-const getDotDash = (digit, row) => {
-  // console.log(dotDashes[digit][row])
-  return dotDashes[digit][row];
-} 
+const getDotDash = (digit, row) => dotDashes[digit][row];
 
-const convertNumber = inputNumber => {
+const printConvertedNumber = inputNumber => {
   const digits = [...inputNumber];
   digits.pop();
-  const convertedNumber = [0,1,2].forEach((row) => {
+  [0,1,2].forEach((row) => {
     const convertedRow = digits.map(digit => getDotDash(digit, row));
     console.log(convertedRow.join(' '));
   });
-  // return convertNumber;
 }
 
 input.on('data', function (data) {
-  console.log('User Input Data : ' + data);
-  convertNumber(data);
+  console.log('You chose : ' + data);
+  printConvertedNumber(data);
 });
-
-
-
-// ._.   ...   ._.   ._.   ...   ._.   ._.   ._.   ._.   ._.
-// |.|   ..|   ._|   ._|   |_|   |_.   |_.   ..|   |_|   |_|
-// |_|   ..|   |_.   ._|   ..|   ._|   |_|   ..|   |_|   ..|
-
-// const numbers = {
-//   0: ''
-// }
